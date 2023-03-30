@@ -134,6 +134,7 @@ const renderTask = (task: Task) => {
     list_item.setAttribute('class','list-group-item')
     list_item.setAttribute('data-key', task.id.toString())
     renderSpan(list_item, task.text)
+    console.log(task.id)
     renderLink(list_item, task.id)
 
     list.append(list_item)
@@ -150,7 +151,10 @@ const renderLink = (list_item: HTMLLIElement, id: number) => {
     link.setAttribute('style','float: right;')
     link.addEventListener('click', event => {
         todos.removeTask(id).then((id) => {
+            //console.log(`[data-key='${id}']`)
             const elementToRemove: HTMLLIElement = document.querySelector(`[data-key='${id}']`)
+            //console.log(elementToRemove)
+                
             if (elementToRemove) {
                 list.removeChild(elementToRemove)
             }

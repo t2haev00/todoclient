@@ -74,7 +74,7 @@ removeTask = (id: number) => {
         .then(response => response.json())
         .then((response) => {
             this.#removeFromArray(id)
-            resolve(response)
+            resolve(response.id)
         }, (error) => {
             reject(error)
         })
